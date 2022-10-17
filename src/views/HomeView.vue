@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { RouterLink } from 'vue-router'
 
 
 const indexLinks = ref([
@@ -38,10 +39,11 @@ const indexLinks = ref([
 </script>
 <template>
     <main>
+        <h2 class="main__title">Índice de contenidos</h2>
         <div class="index__container">
             <RouterLink v-for="item in indexLinks" :to="item.link" class="index__item">
                 <div>
-                    <img :src="item.imgSource" alt="">
+                    <img :src="item.imgSource" :alt="item.title">
                     <h4>{{ item.title }}</h4>
                 </div>
             </RouterLink>
@@ -53,23 +55,31 @@ const indexLinks = ref([
 @use "@/style/mixins"
 @use "@/style/variables"
 @use "@/style/colors"
+
+.main__title
+    margin-block: 2rem
 .index__container
     @include mixins.grid(2, null, center, center)
+    gap: 2rem
+    max-width: 1280px
+    width: 95%
+    margin-inline: auto
     @media (max-width: variables.$bkp-medium)
         @include mixins.grid(1, null, center, center)
 .index__item
     position: relative
+    background-color: lighten(colors.$dark, 5%)
     img
         width: 100%
         height: 100%
-        display: block
         z-index: variables.$z-content
         cursor: pointer
-        object-fit: cover
         object-position: center 0
-        background-color: darken(colors.$light, 10%)
+        object-fit: cover
+        background-color: colors.$dark
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px
         transition: all 0.3s ease-in-out
+        display: block
     &:hover img
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px
         filter: brightness(0.7)
@@ -80,9 +90,8 @@ const indexLinks = ref([
         width: 100%
         padding: 1rem
         color: colors.$light
-        font-size: 1.5rem
         font-weight: 400
-        text-align: center
+        text-align: right
         z-index: variables.$z-content-above
         cursor: pointer
         transition: all 0.3s ease-in-out
