@@ -1,0 +1,17 @@
+@mixin flex($direction, $justify, $align, $wrap)
+    display: flex
+    flex-flow: $direction $wrap
+    justify-content: $justify
+    align-items: $align
+@mixin grid($columns, $rows, $justify, $align)
+    display: grid
+    @if $columns != null
+        grid-template-columns: repeat($columns, 1fr)
+    @if $rows != null
+        grid-template-rows: repeat($rows, 1fr)
+    justify-items: $justify
+    align-items: $align
+
+@mixin square($px)
+    width: $px
+    height: $px

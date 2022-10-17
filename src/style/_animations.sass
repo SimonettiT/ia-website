@@ -1,0 +1,64 @@
+// * Slide in Bottom
+@-webkit-keyframes slide-in-bottom
+    0%
+        -webkit-transform: translateY(30px)
+        transform: translateY(30px)
+        opacity: 0
+
+    100%
+        -webkit-transform: translateY(0)
+        transform: translateY(0)
+        opacity: 1
+
+
+@keyframes slide-in-bottom
+    0%
+        -webkit-transform: translateY(30px)
+        transform: translateY(30px)
+        opacity: 0
+
+    100%
+        -webkit-transform: translateY(0)
+        transform: translateY(0)
+        opacity: 1
+//* Skeleton Loading
+  /*
+  * Use linear gradient to create a loading effect.
+  */
+@-webkit-keyframes skeleton-loading
+    0%
+        background-position: 0% 50%
+
+    50%
+        background-position: 100% 50%
+
+    100%
+        background-position: 0% 50%
+@keyframes skeleton-loading
+    0%
+        background-position: 0% 50%
+
+    50%
+        background-position: 100% 50%
+
+    100%
+        background-position: 0% 50%
+// Mobile Navigation Animation
+.mobile-nav-enter-active,
+.mobile-nav-leave-active
+    transition: 1s ease-in-out all
+.mobile-nav-enter-from
+    transform: translateX(-300px)
+.mobile-nav-enter-to
+    transform: translateX(0)
+.mobile-nav-leave-to
+    transform: translateX(-300px)
+
+
+.fade-enter-active,
+.fade-leave-active
+    transition: opacity .3s
+.fade-enter-from,
+.fade-leave-to
+    opacity: 0
+

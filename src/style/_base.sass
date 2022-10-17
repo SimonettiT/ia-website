@@ -1,0 +1,53 @@
+@use "@/style/fonts"
+
+*
+    box-sizing: border-box
+    margin: 0
+    margin-block: 0
+    margin-inline: 0
+    padding: 0
+
+h1, h2, h3, h4, h5, h6
+    font-family: "Khand", sans-serif
+    text-transform: uppercase
+    letter-spacing: 0.05rem
+
+h1
+    font-size: fonts.$font-xxxl
+h2
+    font-size: fonts.$font-xxl
+h3
+    font-size: fonts.$font-xl
+h4
+    font-size: fonts.$font-lg
+h5
+    font-size: fonts.$font-md
+h6
+    font-size: fonts.$font-sm
+p, a
+    font-size: fonts.$font-base
+
+
+img
+    max-width: 100%
+
+
+.container
+    max-width: 1280px
+    width: 95%
+    margin-inline: auto
+
+.markdown-text
+    line-height: 1.5
+    p
+        font-size: fonts.$font-base
+    br
+        display: block
+        content: ""
+        margin-top: 0.7em
+        line-height: 200%
+        vertical-align: top
+    h1, h2, h3, h4, h5, h6
+        margin-block: 2rem 1.5rem
+    li
+        margin-block: 0.5rem
