@@ -26,9 +26,9 @@ const isMobile = ref(false);
                 <h1>Inteligencia Artificial</h1>
                 <h5>¿Qué quieres crear conmigo?</h5>
                 <div class="cover__mediatype-container">
-                    <RouterLink to="" class="cover__btn">Textos</RouterLink>
-                    <RouterLink to="" class="cover__btn">Imágenes</RouterLink>
-                    <RouterLink to="" class="cover__btn">Sonidos</RouterLink>
+                    <RouterLink to="/" class="cover__btn">Textos</RouterLink>
+                    <RouterLink to="/" class="cover__btn">Imágenes</RouterLink>
+                    <RouterLink to="/" class="cover__btn">Sonidos</RouterLink>
                 </div>
             </div>
         </div>
