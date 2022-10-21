@@ -1,5 +1,18 @@
 <script setup>
+import { useDatabaseStore } from '@/stores/sanityDB';
 import IconCommunity from '../components/icons/IconCommunity.vue';
+
+const query = `*[_type == "timeline"] | order(date asc) {
+  _id,
+  title,
+  date,
+  text,
+}`
+
+const db = useDatabaseStore();
+await db.getTimeline(query);
+
+
 
 </script>
 
@@ -8,46 +21,12 @@ import IconCommunity from '../components/icons/IconCommunity.vue';
         <h2 class="main__title">Línea de tiempo</h2>
         <div class="timeline__container">
 
-            <div class="timeline__item">
-                <div class="timeline-item__date">15 Dec</div>
+            <div class="timeline__item" v-for="timelineItem in db.timelineData">
+                <div class="timeline-item__date">{{ timelineItem.date }}</div>
                 <IconCommunity class="icon timeline-item__icon" />
                 <div class="timeline-item__content">
-                    <h4>Lorem ipsum dolor sit amet left</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                    </p>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline-item__date">15 Dec</div>
-                <IconCommunity class="icon timeline-item__icon" />
-                <div class="timeline-item__content">
-                    <h4>Lorem ipsum dolor sit amet right</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                    </p>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline-item__date">15 Dec</div>
-                <IconCommunity class="icon timeline-item__icon" />
-                <div class="timeline-item__content">
-                    <h4>Lorem ipsum dolor sit amet left</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                    </p>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline-item__date">15 Dec</div>
-                <IconCommunity class="icon timeline-item__icon" />
-                <div class="timeline-item__content">
-                    <h4>Lorem ipsum dolor sit amet right</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                        Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                        Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                    </p>
+                    <h4>{{ timelineItem.title }}</h4>
+                    <p>{{ timelineItem.text }}</p>
                 </div>
             </div>
         </div>
