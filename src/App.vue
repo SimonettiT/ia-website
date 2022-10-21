@@ -5,8 +5,12 @@ import Header from './components/Cover.vue'
 
 <template>
     <Header/>
-
-    <RouterView />
+    <Suspense>
+        <RouterView />
+        <template #fallback>
+            Loading content...
+        </template>
+    </Suspense>
 </template>
 
 <style lang="sass">
