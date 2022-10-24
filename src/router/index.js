@@ -21,6 +21,14 @@ const router = createRouter({
       path: '/ia-evolution',
       name: 'timeline',
       component: () => import('../views/TimelineView.vue')
+    },
+    {
+      path: '/blog/:slug',
+      component: () => import('../views/BlogPostView.vue')
+    },
+    {
+      path: '/blog/ia-evolution',
+      redirect: { name: 'timeline' }
     }
   ]
 })
