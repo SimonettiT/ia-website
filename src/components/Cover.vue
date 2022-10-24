@@ -71,8 +71,14 @@ header
     height: 100%
     h1
         margin-bottom: 5rem
+        max-width: 95%
     h5
         margin-bottom: 1rem
+.cover__mediatype-container
+    @include mixins.flex(row, center, center, nowrap)
+    gap: 1rem
+    @media (max-width: variables.$bkp-small)
+        flex-direction: column
 .cover__btn
     border: 0
     font-weight: 400
@@ -83,11 +89,12 @@ header
     color: darken(colors.$light, 5%)
     letter-spacing: 0.08rem
     border: 1px solid darken(colors.$light, 40%)
-    margin-inline: 1rem
     &:hover
         color: colors.$light
         background-color: opacify(colors.$dark, 0.5)
         border-color: colors.$brand
         transition: all variables.$transition-fast
         box-shadow: variables.$shadow-1
+    @media (max-width: variables.$bkp-small)
+        width: 100%
 </style>
