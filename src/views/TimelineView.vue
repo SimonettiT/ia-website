@@ -12,7 +12,13 @@ const query = `*[_type == "timeline"] | order(date asc) {
 const db = useDatabaseStore();
 await db.getTimeline(query);
 
-
+const getDate = (date) => {
+  const dateObj = new Date(date);
+  console.log(dateObj);
+  const month = dateObj.toLocaleString('default', { month: 'short' });
+  const year = dateObj.getFullYear();
+  return `${month} ${year}`;
+}
 
 </script>
 
@@ -22,7 +28,7 @@ await db.getTimeline(query);
         <div class="timeline__container">
 
             <div class="timeline__item" v-for="timelineItem in db.timelineData">
-                <div class="timeline-item__date">{{ timelineItem.date }}</div>
+                <div class="timeline-item__date">{{ getDate(timelineItem.date) }}</div>
                 <IconCommunity class="icon timeline-item__icon" />
                 <div class="timeline-item__content">
                     <h4>{{ timelineItem.title }}</h4>
@@ -66,7 +72,7 @@ h2
     &:nth-child(odd) // left
         left: 0
         .timeline-item__date
-            right: -75px
+            right: -105px
         .timeline-item__icon
             right: 56px
 
@@ -74,7 +80,7 @@ h2
     &:nth-child(even) // right
         left: 50%
         .timeline-item__date
-            left: -75px
+            left: -105px
         .timeline-item__icon
             left: 56px
         .timeline-item__content
@@ -146,9 +152,11 @@ h2
 
 @media (max-width: variables.$bkp-medium)
     .timeline__container::after
-        left: 90px
+        left: 112px
     .timeline__item
-        width: 100%
+        width: calc(100% - 20px)
+        margin-right: 0
+        margin-left: auto
         padding-inline: 120px 0
         &:nth-child(even) //right
             left: 0%
@@ -161,7 +169,7 @@ h2
                 border-color: transparent #006E51 transparent transparent
             .timeline-item__date
                 right: auto
-                left: 15px
+                left: 3px
             .timeline-item__icon
                 right: auto
                 left: 146px
