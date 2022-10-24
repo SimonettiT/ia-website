@@ -6,6 +6,7 @@ export const useDatabaseStore = defineStore("sanityDB", {
         indexList: [],
         error: null,
         timelineData: [],
+        blogPost: [],
     }),
 
     actions: {
@@ -23,6 +24,17 @@ export const useDatabaseStore = defineStore("sanityDB", {
             await sanity.fetch(query).then(
                 (data) => {
                     this.timelineData = data;
+                },
+                (error) => {
+                    this.error = error;
+                }
+            );
+        },
+        async getBlogPost(query) {
+            this.blogPost = [];
+            await sanity.fetch(query).then(
+                (data) => {
+                    this.blogPost = data;
                 },
                 (error) => {
                     this.error = error;
