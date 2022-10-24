@@ -1,7 +1,6 @@
 <script setup>
 import sanity from "../client";
 import { useDatabaseStore } from '@/stores/sanityDB';
-import { ref } from 'vue';
 import { RouterLink } from 'vue-router'
 import imageUrlBuilder from "@sanity/image-url";
 
@@ -21,47 +20,15 @@ const imageUrlFor = (source) => {
       return imageBuilder.image(source);
 }
 
-const indexLinks = ref([
-    {
-        title: "¿Quieres saber sobre mí?",
-        imgSource: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        link: "/ia-evolution"
-    },
-    {
-        title: "¿Dónde me puedes encontrar hoy en día?",
-        imgSource: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        link: "/ia-evolution"
-    },
-    {
-        title: "¿Qué soy?",
-        imgSource: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        link: "/ia-evolution"
-    },
-    {
-        title: "Lo que opinan expertos sobre mí",
-        imgSource: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        link: "/ia-evolution"
-    },
-    {
-        title: "Prueba en Instagram",
-        imgSource: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        link: "/ia-evolution"
-    },
-    {
-        title: "Mi futuro",
-        imgSource: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        link: "/ia-evolution"
-    },
-])
 
 </script>
 <template>
     <main>
         <h2 class="main__title">Índice de contenidos</h2>
         <div class="index__container">
-            <RouterLink v-for="item in db.indexList" :to="item.slug.current" class="index__item">
+            <RouterLink v-for="item in db.indexList" :key="item._id" :to="'blog/' + item.slug.current" class="index__item">
                 <div class="item__img--gradient">
-                    <img :src="imageUrlFor(item.coverImage).width(480)" :alt="item.title">
+                    <img :src="imageUrlFor(item.coverImage).width(600)" :alt="item.title">
                 </div>
                 <h4>{{ item.title }}</h4>
             </RouterLink>
