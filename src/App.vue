@@ -1,6 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import Header from './components/Cover.vue'
+import Footer from './components/Footer.vue'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import Header from './components/Cover.vue'
             Loading content...
         </template>
     </Suspense>
+    <Footer />
 </template>
 
 <style lang="sass">
@@ -32,7 +34,6 @@ import Header from './components/Cover.vue'
 body
     background-color: colors.$dark
     color: colors.$light
-    padding-bottom: 10rem // DELETE AFTER
 
 //  Scrollbar
 * 
