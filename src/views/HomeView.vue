@@ -96,4 +96,5 @@ const imageUrlFor = (source) => {
         z-index: variables.$z-content-above
         cursor: pointer
         transition: all 0.3s ease-in-out
+        text-shadow: 2px 3px 3px rgba(0,0,0,0.3)
 </style>
