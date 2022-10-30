@@ -54,6 +54,9 @@ footer
     .footer__wrapper
         @include mixins.flex(row, space-between, flex-start, nowrap)
         padding: 2rem 3rem
+        width: 95%
+        max-width: 1280px
+        margin-inline: auto
 .footer__section
     text-align: left
     li
@@ -102,8 +105,6 @@ footer
             @include mixins.flex(column-reverse, center, center, nowrap)
             gap: 2rem
             padding-inline: 0
-            width: 95%
-            margin-inline: auto
     .footer__section
         text-align: center
     .footer__identity
