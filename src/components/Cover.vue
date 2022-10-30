@@ -1,12 +1,19 @@
 <script setup>
 import { ref } from 'vue';
+import Logo from '@/components/icons/Logo.vue';
+import NavbarIcon from '@/components/icons/NavbarIcon.vue';
+import NavMenu from '@/components/NavMenu.vue';
+const isNavOpen = ref(false);
 
-const isMobile = ref(false);
 </script>
 <template>
+
     <header>
-      <div class="cover__background">
-            <video v-if="!isMobile"
+        <Transition name="fade">
+            <NavMenu v-if="isNavOpen" @closeNavMenu="isNavOpen = false"/>
+        </Transition>
+        <div class="cover__background">
+            <video
                 class="cover__background--video"
                 autoplay
                 loop
@@ -14,16 +21,21 @@ const isMobile = ref(false);
                 muted
             >
                 <source src="@/assets/background-header.mp4" type="video/mp4">
-                <!-- <source src="@/assets/reel-website.webm" type="video/webm"> -->
+                <!-- <source src="@/assets/background-header.webm" type="video/webm"> -->
             </video>
-
-            <img v-else-if="isMobile" alt="ia-background" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.atriainnovation.com%2Fcomo-de-inteligente-puede-ser-una-ia%2F&psig=AOvVaw2wzeYRtSp1NBTDEUZXESXb&ust=1665936413448000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCJinnN7O4voCFQAAAAAdAAAAABAE"/>
         </div>
 
         <div class="cover__content">
-            <nav></nav>
+            <nav>
+                <RouterLink to="/" title="Ir a Inicio">
+                    <Logo class="nav__logo cover__icon"/>
+                </RouterLink>
+                <button class="nav__burger-btn" title="Abrir menú de navegación">
+                    <NavbarIcon class="cover__icon" @click="isNavOpen = !isNavOpen"/>
+                </button>
+            </nav>
             <div class="cover__titles">
-                <h1>Inteligencia Artificial</h1>
+                <h1 data-text="ARTE.AI">ARTE.AI</h1>
                 <h5>¿Qué quieres crear conmigo?</h5>
                 <div class="cover__mediatype-container">
                     <RouterLink to="/" class="cover__btn">Textos</RouterLink>
@@ -65,12 +77,30 @@ header
 .cover__content
     z-index: variables.$z-content-above
     height: 100%
+
+
+nav
+    @include mixins.flex(row, space-between, center, nowrap)
+    width: 95%
+    margin-inline: auto
+    padding-top: 1.5rem
+    .cover__icon
+        fill: colors.$light
+        width: 4rem
+    .nav__burger-btn
+        border: none
+        background-color: transparent
+        cursor: pointer
+        svg
+            color: colors.$light
+            width: 3rem
 .cover__titles
     @include mixins.flex(column, center, center, nowrap)
     width: 100%
     height: 100%
+    padding-bottom: 4rem
     h1
-        margin-bottom: 5rem
+        margin-bottom: 3rem
         max-width: 95%
     h5
         margin-bottom: 1rem
@@ -97,4 +127,68 @@ header
         box-shadow: variables.$shadow-1
     @media (max-width: variables.$bkp-small)
         width: 100%
+
+.cover__titles h1
+    animation: glitch 2s linear infinite
+    letter-spacing: 0.5rem
+    &:before,
+    &:after
+        content: attr(data-text)
+        position: absolute
+        left: 0
+
+    &:before
+        animation: glitchTop 2s linear infinite
+        clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%)
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%)
+    &:after
+        animation: glitchBotom 1.5s linear infinite
+        clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%)
+        -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%)
+
+
+@keyframes glitch
+    2%, 64%
+        transform: translate(2px,0) skew(0deg)
+
+    4%, 60%
+        transform: translate(-2px,0) skew(0deg)
+
+    62%
+        transform: translate(0,0) skew(5deg) 
+
+
+
+@keyframes glitchTop
+  2%, 64%
+    transform: translate(2px,-2px)
+
+  4%, 60%
+    transform: translate(-2px,2px)
+
+  62%
+    transform: translate(13px,-1px) skew(-13deg) 
+
+
+
+
+@keyframes glitchBotom
+  2%, 64%
+    transform: translate(-2px,0)
+
+  4%, 60%
+    transform: translate(-2px,0)
+
+  62%
+    transform: translate(-22px,5px) skew(21deg) 
+
+
+.fade-enter-active,
+.fade-leave-active
+  transition: all 0.5s ease
+
+.fade-enter-from,
+.fade-leave-to
+  opacity: 0
+  transform: translateY(40px) scale(0.97)
 </style>
