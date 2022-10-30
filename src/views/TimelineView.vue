@@ -1,6 +1,6 @@
 <script setup>
 import { useDatabaseStore } from '@/stores/sanityDB';
-import IconCommunity from '../components/icons/IconCommunity.vue';
+import BrainIcon from '../components/icons/BrainIcon.vue';
 
 const query = `*[_type == "timeline"] | order(date asc) {
   _id,
@@ -29,7 +29,7 @@ const getDate = (date) => {
 
             <div class="timeline__item" v-for="timelineItem in db.timelineData">
                 <div class="timeline-item__date">{{ getDate(timelineItem.date) }}</div>
-                <IconCommunity class="icon timeline-item__icon" />
+                <BrainIcon class="icon timeline-item__icon" />
                 <div class="timeline-item__content">
                     <h4>{{ timelineItem.title }}</h4>
                     <p>{{ timelineItem.text }}</p>
