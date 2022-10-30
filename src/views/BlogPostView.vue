@@ -27,13 +27,14 @@ const bodyContent = marked.parse(db.blogPost[0].bodyContent);
 
 </script>
 <template>
-    <div>
-        <h2>Hi {{ db.blogPost[0].title }}</h2>
+    <main>
+        <h2>{{ db.blogPost[0].title }}</h2>
         <img :src="imageUrlFor(db.blogPost[0].coverImage).width(500).url()" />
-        <div v-html="bodyContent" class="markdown-text"></div>
-    </div>
+        <div v-html="bodyContent" class="markdown-text container"></div>
+    </main>
 </template>
 
 <style lang="sass" scoped>
-
+main
+    min-height: 100vh
 </style>
