@@ -20,7 +20,7 @@ import Logo from '@/components/icons/Logo.vue';
                 <ul>
                     <li><RouterLink to="/">Inicio</RouterLink></li>
                     <li><RouterLink to="/">Textos</RouterLink></li>
-                    <li><RouterLink to="/">Imágenes</RouterLink></li>
+                    <li><RouterLink to="/generate/images">Imágenes</RouterLink></li>
                     <li><RouterLink to="/">Sonidos</RouterLink></li>
                 </ul>
             </section>

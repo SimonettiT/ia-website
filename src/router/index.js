@@ -29,6 +29,11 @@ const router = createRouter({
     {
       path: '/blog/ia-evolution',
       redirect: { name: 'timeline' }
+    },
+    {
+      path: '/generate/images',
+      name: 'images',
+      component: () => import('../views/ImagesView.vue')
     }
   ]
 })

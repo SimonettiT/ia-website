@@ -39,7 +39,7 @@ const isNavOpen = ref(false);
                 <h5>¿Qué quieres crear conmigo?</h5>
                 <div class="cover__mediatype-container">
                     <RouterLink to="/" class="cover__btn">Textos</RouterLink>
-                    <RouterLink to="/" class="cover__btn">Imágenes</RouterLink>
+                    <RouterLink to="/generate/images" class="cover__btn">Imágenes</RouterLink>
                     <RouterLink to="/" class="cover__btn">Sonidos</RouterLink>
                 </div>
             </div>
