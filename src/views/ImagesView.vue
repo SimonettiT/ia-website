@@ -1,4 +1,5 @@
 <script setup>
+import Arrow from '@/components/icons/Arrow.vue';
 import { ref } from 'vue';
 
 
@@ -92,6 +93,8 @@ const selectElephantStyle = (item) => {
                     </button>
                 </div>
             </div>
+            
+            <Arrow :orientation="'90deg'" :orientation-medium="'180deg'" class="arrow-icon"/>
             <div class="img__showcase-container">
                 <img :src="selectedElephantStyle.link" :alt="selectedElephantStyle.name">
                 <p>Un elefante {{ selectedElephantType.name }} {{ selectedElephantStyle.name }}.</p>
@@ -110,26 +113,29 @@ const selectElephantStyle = (item) => {
 
 main
     text-align: left
-    margin-top: 2rem
+    margin-top: 3rem
 .img-selector-section
-    background-color: lighten(colors.$dark, 10%)
+    background-color: lighten(colors.$dark, 15%)
     text-align: left
     padding-block: 3rem
+    margin-block: 3rem
     .img-selector__container
         @include mixins.flex(row, space-between, flex-start, nowrap)
+.arrow-icon
+    width: variables.$icon-xxl
+    align-self: center
+    margin: 1rem
 .img__showcase-container
     width: 45%
-    max-width: 600px
+    max-width: 700px
     img, p
         width: 100%
-        max-width: 555px
-        padding-inline: auto
     p
         display: inline-block
         font-size: fonts.$font-sm
 .img__selector-options
     width: 50%
-    max-width: 900px
+    max-width: 500px
     span
         text-transform: uppercase
         letter-spacing: 0.15rem
@@ -167,5 +173,4 @@ main
         .img__showcase-container
             width: 100%
             max-width: 100%
-            margin-block: 2rem 0
 </style>
