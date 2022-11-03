@@ -23,9 +23,9 @@ onMounted(() => {
                 <div class="nav__wrapper">
                     <RouterLink @click="closeNavMenu()" to="/" class="nav__link">Inicio</RouterLink>
                     <h4 class="nav__category-title">Imagina</h4>
-                    <RouterLink @click="closeNavMenu()" to="/" class="nav__link">Textos</RouterLink>
+                    <RouterLink @click="closeNavMenu()" to="/generate/text" class="nav__link">Textos</RouterLink>
                     <RouterLink @click="closeNavMenu()" to="/generate/images" class="nav__link">Imágenes</RouterLink>
-                    <RouterLink @click="closeNavMenu()" to="/" class="nav__link">Sonidos</RouterLink>
+                    <RouterLink @click="closeNavMenu()" to="/generate/sound" class="nav__link">Sonidos</RouterLink>
                 </div>
             </Transition>
             <Logo class="nav__background-logo"/>

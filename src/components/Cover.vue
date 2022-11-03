@@ -38,9 +38,9 @@ const isNavOpen = ref(false);
                 <h1 data-text="ARTE.AI">ARTE.AI</h1>
                 <h5>¿Qué quieres crear conmigo?</h5>
                 <div class="cover__mediatype-container">
-                    <RouterLink to="/" class="cover__btn">Textos</RouterLink>
+                    <RouterLink to="/generate/text" class="cover__btn">Textos</RouterLink>
                     <RouterLink to="/generate/images" class="cover__btn">Imágenes</RouterLink>
-                    <RouterLink to="/" class="cover__btn">Sonidos</RouterLink>
+                    <RouterLink to="/generate/sound" class="cover__btn">Sonidos</RouterLink>
                 </div>
             </div>
         </div>
@@ -101,6 +101,9 @@ nav
     h1
         margin-bottom: 3rem
         max-width: 95%
+        font-size: fonts.$font-giant
+        @media (max-width: variables.$bkp-small)
+            font-size: fonts.$font-xxxl
     h5
         margin-bottom: 1rem
 .cover__mediatype-container

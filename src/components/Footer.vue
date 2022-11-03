@@ -19,9 +19,9 @@ import Logo from '@/components/icons/Logo.vue';
                 <h5>Menú</h5>
                 <ul>
                     <li><RouterLink to="/">Inicio</RouterLink></li>
-                    <li><RouterLink to="/">Textos</RouterLink></li>
+                    <li><RouterLink to="/generate/text">Textos</RouterLink></li>
                     <li><RouterLink to="/generate/images">Imágenes</RouterLink></li>
-                    <li><RouterLink to="/">Sonidos</RouterLink></li>
+                    <li><RouterLink to="/generate/sound">Sonidos</RouterLink></li>
                 </ul>
             </section>
 

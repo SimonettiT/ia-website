@@ -37,10 +37,20 @@ const router = createRouter({
       component: () => import('../views/ImagesView.vue')
     },
     {
+      path: '/generate/sound',
+      name: 'sound',
+      component: () => import('../views/SoundView.vue')
+    },
+    {
+      path: '/generate/text',
+      name: 'text',
+      component: () => import('../views/TextView.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: HomeView
-    }
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     // always scroll to top
