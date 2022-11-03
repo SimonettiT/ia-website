@@ -28,13 +28,48 @@ const bodyContent = marked.parse(db.blogPost[0].bodyContent);
 </script>
 <template>
     <main>
-        <h2>{{ db.blogPost[0].title }}</h2>
-        <img :src="imageUrlFor(db.blogPost[0].coverImage).width(500).url()" />
+        <RouterLink to="/" class="go-back">&lt Volver al Inicio</RouterLink>
+        <div class="blog__header">
+            <h2 class="container"> <span>BLOG</span> {{ db.blogPost[0].title }}</h2>
+            <img :src="imageUrlFor(db.blogPost[0].coverImage).width(1280).url()" />
+        </div>
         <div v-html="bodyContent" class="markdown-text container"></div>
     </main>
 </template>
 
 <style lang="sass" scoped>
+@use "@/style/fonts"
+@use "@/style/mixins"
+@use "@/style/colors"
 main
     min-height: 100vh
+    padding-top: 3rem
+.blog__header
+    margin-bottom: 2rem
+    h2
+        font-weight: 700
+        margin-block: 1rem
+        text-align: left
+        span
+            color: colors.$brand
+            font-size: inherit
+            margin-right: 1rem
+    img
+        width: 100%
+        max-width: 1280px
+        max-height: 700px
+        display: block
+        height: auto
+        object-fit: cover
+        object-position: center
+.go-back
+    text-align: left
+    display: block
+    margin-inline: auto
+    width: 95%
+    max-width: 1280px
+    font-size: fonts.$font-base
+    font-weight: 500
+    &:hover
+        text-decoration: underline
 </style>
