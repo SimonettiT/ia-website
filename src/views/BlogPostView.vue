@@ -33,7 +33,7 @@ const bodyContent = marked.parse(db.blogPost[0].bodyContent);
             <h2 class="container"> <span>BLOG</span> {{ db.blogPost[0].title }}</h2>
             <img :src="imageUrlFor(db.blogPost[0].coverImage).width(1280).url()" />
         </div>
-        <div v-html="bodyContent" class="markdown-text container"></div>
+        <article v-html="bodyContent" class="markdown-text container"></article>
     </main>
 </template>
 
