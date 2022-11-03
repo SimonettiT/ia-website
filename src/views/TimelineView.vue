@@ -176,4 +176,13 @@ h2
             .timeline-item__content
                 padding: 30px 30px 30px 90px
                 border-radius: 500px 0 0 500px
+@media (max-width: variables.$bkp-small)
+
+    .timeline__item
+        //padding-inline: 120px 0
+        &:nth-child(even),
+        &:nth-child(odd)
+            .timeline-item__content
+                border-radius: 2rem 0 0 2rem
+                padding: 30px 20px 30px 70px
 </style>
