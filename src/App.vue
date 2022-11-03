@@ -7,7 +7,11 @@ import Footer from './components/Footer.vue'
 <template>
     <Header/>
     <Suspense>
-        <RouterView />
+        <RouterView v-slot="{ Component }"> 
+            <Transition name="fade">
+                <component :is="Component" id="main"/>
+            </Transition>
+        </RouterView>
         <template #fallback>
             Loading content...
         </template>
@@ -20,6 +24,7 @@ import Footer from './components/Footer.vue'
 @use "@/style/fonts"
 @use "@/style/links"
 @use "@/style/colors"
+@use "@/style/animations"
 
 
 
@@ -48,6 +53,13 @@ body
     border-radius: 10px
     &:hover
         background-color: lighten(colors.$dark, 25%)
+
+.fade-enter-active,
+.fade-leave-active
+    transition: opacity .5s
+.fade-enter-from,
+.fade-leave-to
+    opacity: 0
 
 
 //   When the modal is open, the body isn't scrollable.
