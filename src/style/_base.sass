@@ -1,4 +1,5 @@
 @use "@/style/fonts"
+@use "@/style/colors"
 
 *
     box-sizing: border-box
@@ -42,8 +43,11 @@ img
     text-align: left
     *
         margin-block: 1.5rem
-    p
+    p, a, span
         font-size: fonts.$font-md
+    a
+        color: colors.$link
+        text-decoration: underline
     br
         display: block
         content: ""

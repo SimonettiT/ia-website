@@ -60,6 +60,7 @@ main
         max-height: 700px
         display: block
         height: auto
+        margin: auto
         object-fit: cover
         object-position: center
 .go-back
