@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
+  
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -34,8 +35,21 @@ const router = createRouter({
       path: '/generate/images',
       name: 'images',
       component: () => import('../views/ImagesView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: HomeView
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { 
+      el: '#main',
+      behavior: 'smooth',
+      top: 0,
+    }
+  },
 })
 
 export default router
