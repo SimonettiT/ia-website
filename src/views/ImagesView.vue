@@ -67,16 +67,49 @@ const selectElephantStyle = (item) => {
     selectedElephantStyle.value = item
 }
 
+const toolsCollection = ref([
+    {
+        title: 'Midjourney',
+        img: 'Midjourney.webp',
+        description: 'Midjourney es un generador gratuito de imágenes que se utiliza a través de la aplicación Discord',
+        link: 'https://midjourney.com/'
+    },
+    {
+        title: 'DALL-E 2',
+        img: 'dall-E-2.webp',
+        description: 'DALL-E 2 es un generador de imágenes que utiliza el modelo de aprendizaje profundo de la Open AI, puedes generar 50 imágenes gratuitas el primer mes y luego 15 por mes',
+        link: 'https://openai.com/dall-e-2/'
+    },
+    {
+        title: 'Stable Diffusion',
+        img: 'stable-diffusion.webp',
+        description: 'Stable Diffusion es un modelo de aprendizaje automático desarrollado por Stability AI para generar imágenes digitales de alta calidad a partir de descripciones en lenguaje natural',
+        link: 'https://huggingface.co/spaces/stabilityai/stable-diffusion'
+    },
+    {
+        title: 'PixelZ',
+        img: 'pixelz.webp',
+        description: 'Es una pequeña herramienta generadora de imágenes y con un largo camino por recorrer, pero que ya tiene un buen resultado',
+        link: 'https://pixelz.ai/'
+    },
+    {
+        title: 'Avatar AI',
+        img: 'avatar-ai.webp',
+        description: 'Avatar AI es una herramienta que te permite crear avatares de forma automática a partir de algunas imágenes tuyas o de tus mascotas',
+        link: 'https://avatarai.me/'
+    }
+])
+
 </script>
 
 <template>
 <main>
-    <div class="container">
+    <section class="container markdown-text">
         <h2>Crea Imágenes</h2>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem sed cumque voluptas dolorem sequi quae voluptates explicabo similique corrupti, quibusdam animi velit quo nulla perspiciatis consequuntur expedita recusandae mollitia natus. </p>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem sed cumque voluptas dolorem sequi quae voluptates explicabo similique corrupti, quibusdam animi velit quo nulla perspiciatis consequuntur expedita recusandae mollitia natus. </p>
-
-    </div>
+        <p>Una de las razones por la cuál las personas se maravillan últimamente es por mi capacidad para generar cualquier tipo de imagen de lo que sea, incluso lo que no existe y que no cualquiera podría imaginar y de cualquier tipo de estilo o forma.</p>
+        <p>Puedo imaginar cómo será una ciudad utópica en dentro de 100 años en forma de boceto, como así mostrar cómo sería la Primera Guerra Mundial en América Latina en una fotografía a blanco y negro. Soy capaz de crear nuevas pinturas idénticas al estilo de Dalli, Picasso, Vincent Van Gogh, Antonio Berni con temas totalmente diferentes.</p>
+        <p>Lo único que necesito es que un usuario me dé las instrucciones de lo que necesite crear. Con una simple descripción de 10 palabras o menos ya me es suficiente para hacer lo que hace 5 años parecía imposible, todo en apenas unos segundos.</p>
+    </section>
     <section class="img-selector-section">
         <div class="img-selector__container container">
             <div class="img__selector-options">
@@ -102,6 +135,22 @@ const selectElephantStyle = (item) => {
         </div>
 
     </section>
+    <section class="container markdown-text">
+        <h3>Infinitas posibilidades</h3>
+        <p>No solo imagino desde 0, sino que también puedo editar imágenes ya creadas. Puedo eliminar una persona que no te caiga de una foto familiar o añadir un gatito que se pose en el sofá de tu casa. Si tu mano está cortada en la fotografía puedo expandir la imagen y replicarla para que quede un retrato perfecto para subir a tus redes sociales.</p>
+        <p>Soy capaz de animar imágenes estáticas para crear videos y GIFS, como por ejemplo hacer que una constelación esté en movimiento o que verdaderamente caigan gotas de la lluvia en una foto que tengas con tu pareja. Puede ser que primero te ayude a imaginar una imagen y luego a convertirla en vídeo. Todo se puede lograr.</p>
+
+        <h3>Herramientas</h3>
+        <p>Aunque no lo parezca, la mayoría de las herramientas más conocidas y utilizadas son gratuitas y muy fáciles de manipular, por lo que te mostraré algunas que seguramente podrás usar.</p>
+    </section>
+    <section class="container tools__grid">
+        <a :href="tool.link" target="_blank" v-for="tool in toolsCollection" :key="tool.title" class="tools__item">
+            <img :src="'https://simonettitomas.com/ia-images/' + tool.img" :alt="tool.title">
+            <h4>{{ tool.title }}</h4>
+            <p class="tools__description">{{ tool.description }}</p>
+            <p class="tools__link">Visitar <Arrow :orientation="'90deg'" :orientation-medium="'90deg'" class="small-arrow-icon"/></p>
+        </a>
+    </section>
 </main>
 </template>
 
@@ -125,6 +174,9 @@ main
     width: variables.$icon-xxl
     align-self: center
     margin: 1rem
+.small-arrow-icon
+    width: variables.$icon-md
+    padding-left: 0.1rem
 .img__showcase-container
     width: 45%
     max-width: 700px
@@ -173,4 +225,23 @@ main
         .img__showcase-container
             width: 100%
             max-width: 100%
+
+.tools__grid
+    @include mixins.grid(2, null , center, start)
+    gap: 2rem
+    .tools__item:hover
+        .tools__link
+            text-decoration: underline
+    img
+        width: 100%
+        height: 200px
+        object-fit: cover
+        object-position: center 0
+    .tools__link
+        color: colors.$link
+    @media (max-width: variables.$bkp-medium)
+        grid-template-columns: 1fr
+        img
+            height: 300px
+
 </style>
