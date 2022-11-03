@@ -97,8 +97,7 @@ nav
 .cover__titles
     @include mixins.flex(column, center, center, nowrap)
     width: 100%
-    height: 100%
-    padding-bottom: 4rem
+    height: 80%
     h1
         margin-bottom: 3rem
         max-width: 95%
