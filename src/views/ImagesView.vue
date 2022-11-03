@@ -1,5 +1,6 @@
 <script setup>
 import Arrow from '@/components/icons/Arrow.vue';
+import GenerationTools from '../components/GenerationTools.vue';
 import { ref } from 'vue';
 
 
@@ -143,14 +144,7 @@ const toolsCollection = ref([
         <h3>Herramientas</h3>
         <p>Aunque no lo parezca, la mayoría de las herramientas más conocidas y utilizadas son gratuitas y muy fáciles de manipular, por lo que te mostraré algunas que seguramente podrás usar.</p>
     </section>
-    <section class="container tools__grid">
-        <a :href="tool.link" target="_blank" v-for="tool in toolsCollection" :key="tool.title" class="tools__item">
-            <img :src="'https://simonettitomas.com/ia-images/' + tool.img" :alt="tool.title">
-            <h4>{{ tool.title }}</h4>
-            <p class="tools__description">{{ tool.description }}</p>
-            <p class="tools__link">Visitar <Arrow :orientation="'90deg'" :orientation-medium="'90deg'" class="small-arrow-icon"/></p>
-        </a>
-    </section>
+    <GenerationTools :tools-collection="toolsCollection" />
 </main>
 </template>
 
@@ -174,9 +168,6 @@ main
     width: variables.$icon-xxl
     align-self: center
     margin: 1rem
-.small-arrow-icon
-    width: variables.$icon-md
-    padding-left: 0.1rem
 .img__showcase-container
     width: 45%
     max-width: 700px
@@ -225,23 +216,5 @@ main
         .img__showcase-container
             width: 100%
             max-width: 100%
-
-.tools__grid
-    @include mixins.grid(2, null , center, start)
-    gap: 2rem
-    .tools__item:hover
-        .tools__link
-            text-decoration: underline
-    img
-        width: 100%
-        height: 200px
-        object-fit: cover
-        object-position: center 0
-    .tools__link
-        color: colors.$link
-    @media (max-width: variables.$bkp-medium)
-        grid-template-columns: 1fr
-        img
-            height: 300px
 
 </style>
