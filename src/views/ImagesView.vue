@@ -140,11 +140,12 @@ const toolsCollection = ref([
         <h3>Infinitas posibilidades</h3>
         <p>No solo imagino desde 0, sino que también puedo editar imágenes ya creadas. Puedo eliminar una persona que no te caiga de una foto familiar o añadir un gatito que se pose en el sofá de tu casa. Si tu mano está cortada en la fotografía puedo expandir la imagen y replicarla para que quede un retrato perfecto para subir a tus redes sociales.</p>
         <p>Soy capaz de animar imágenes estáticas para crear videos y GIFS, como por ejemplo hacer que una constelación esté en movimiento o que verdaderamente caigan gotas de la lluvia en una foto que tengas con tu pareja. Puede ser que primero te ayude a imaginar una imagen y luego a convertirla en vídeo. Todo se puede lograr.</p>
-
+        <iframe class="video-player" width="560" height="315" src="https://www.youtube.com/embed/704brywiyfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <h3>Herramientas</h3>
         <p>Aunque no lo parezca, la mayoría de las herramientas más conocidas y utilizadas son gratuitas y muy fáciles de manipular, por lo que te mostraré algunas que seguramente podrás usar.</p>
     </section>
     <GenerationTools :tools-collection="toolsCollection" />
+    <RouterLink to="/" class="go-back">&lt Volver al Inicio</RouterLink>
 </main>
 </template>
 
@@ -216,5 +217,21 @@ main
         .img__showcase-container
             width: 100%
             max-width: 100%
+.video-player
+    display: block
+    margin-inline: auto
+    max-width: 100%
+    aspect-ratio: 16/9
+    height: auto
 
+.go-back
+    text-align: left
+    display: block
+    margin-inline: auto
+    width: 95%
+    max-width: 1280px
+    font-size: fonts.$font-base
+    font-weight: 500
+    &:hover
+        text-decoration: underline
 </style>

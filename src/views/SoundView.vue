@@ -68,14 +68,27 @@ const toolsCollection = ref([
             <h3>Herramientas</h3>
         </section>
         <GenerationTools :tools-collection="toolsCollection" />
+        <RouterLink to="/" class="go-back">&lt Volver al Inicio</RouterLink>
     </main>
 </template>
 
 <style lang="sass" scoped>
+@use "@/style/fonts"
 .podcast-ai
     display: block
     width: 100%
     max-width: 700px
     margin-inline: auto
     text-align: center
+.go-back
+    text-align: left
+    display: block
+    margin-inline: auto
+    width: 95%
+    max-width: 1280px
+    font-size: fonts.$font-base
+    font-weight: 500
+    margin-top: 2rem
+    &:hover
+        text-decoration: underline
 </style>
