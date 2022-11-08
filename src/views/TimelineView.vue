@@ -14,7 +14,6 @@ await db.getTimeline(query);
 
 const getDate = (date) => {
   const dateObj = new Date(date);
-  console.log(dateObj);
   const month = dateObj.toLocaleString('default', { month: 'short' });
   const year = dateObj.getFullYear();
   return `${month} ${year}`;
@@ -36,6 +35,7 @@ const getDate = (date) => {
                 </div>
             </div>
         </div>
+        <h3 class="timeline__present-title">Presente</h3>
     </main>
 </template>
 
@@ -43,15 +43,24 @@ const getDate = (date) => {
 @use "@/style/colors"
 @use "@/style/variables"
 @use "@/style/fonts"
-
+main
+    padding-bottom: 3rem
 h2
     border-bottom: colors.$brand 2px solid
+.timeline__present-title
+    border: colors.$brand 2px solid
+    display: inline-block
+    padding: 0.5rem 3rem
+    max-width: 95%
+    @media (max-width: variables.$bkp-medium)
+        float: left
+        margin-left: 20px
 .timeline__container
     position: relative
     width: 100%
     max-width: 1280px
     margin: 0 auto
-    padding: 15px 0
+    padding-top: 15px
     text-align: left
     &::after
         content: ''
@@ -79,6 +88,7 @@ h2
 
     &:nth-child(even) // right
         left: 50%
+        text-align: right
         .timeline-item__date
             left: -105px
         .timeline-item__icon
@@ -86,6 +96,8 @@ h2
         .timeline-item__content
             padding: 30px 30px 30px 90px
             border-radius: 500px 0 0 500px
+            @media (max-width: variables.$bkp-large)
+                border-radius: 4rem 0 0 4rem
         &::before
             left: 8px
         &::after
@@ -139,6 +151,8 @@ h2
         background: lighten(colors.$dark, 15%)
         position: relative
         border-radius: 0 500px 500px 0
+        @media (max-width: variables.$bkp-large)
+            border-radius: 0 4rem 4rem 0
         h4
             margin: 0 0 10px 0
             font-weight: normal
@@ -160,6 +174,7 @@ h2
         padding-inline: 120px 0
         &:nth-child(even) //right
             left: 0%
+            text-align: left
         &:nth-child(even),
         &:nth-child(odd)
             &::after
@@ -175,7 +190,7 @@ h2
                 left: 146px
             .timeline-item__content
                 padding: 30px 30px 30px 90px
-                border-radius: 500px 0 0 500px
+                border-radius: 2rem 0 0 2rem
 @media (max-width: variables.$bkp-small)
 
     .timeline__item
@@ -183,6 +198,5 @@ h2
         &:nth-child(even),
         &:nth-child(odd)
             .timeline-item__content
-                border-radius: 2rem 0 0 2rem
                 padding: 30px 20px 30px 70px
 </style>

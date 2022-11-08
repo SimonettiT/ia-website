@@ -2,6 +2,8 @@
 import { RouterView } from 'vue-router'
 import Header from './components/Cover.vue'
 import Footer from './components/Footer.vue'
+import { useRoute } from 'vue-router';
+const route = useRoute()
 </script>
 
 <template>
@@ -9,7 +11,7 @@ import Footer from './components/Footer.vue'
     <Suspense>
         <RouterView v-slot="{ Component }"> 
             <Transition name="fade">
-                <component :is="Component" id="main"/>
+                <component class="main__container" :key="route.path" :is="Component" id="main"/>
             </Transition>
         </RouterView>
         <template #fallback>
@@ -54,14 +56,8 @@ body
     &:hover
         background-color: lighten(colors.$dark, 25%)
 
-.fade-enter-active,
-.fade-leave-active
-    transition: opacity .5s
-.fade-enter-from,
-.fade-leave-to
-    opacity: 0
-
-
+.main__container
+    min-height: 100vh
 //   When the modal is open, the body isn't scrollable.
 //   This style is marked as !important because otherwise it is nullified by the default element style  
 
