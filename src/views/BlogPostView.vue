@@ -4,6 +4,7 @@ import { useDatabaseStore } from '@/stores/sanityDB';
 import imageUrlBuilder from "@sanity/image-url";
 import { useRoute } from 'vue-router'
 import { marked } from 'marked';
+import BlogCardsList from "../components/BlogCardsList.vue";
 const route = useRoute()
 
 
@@ -12,9 +13,15 @@ const route = useRoute()
 const query = `*[_type == "sitePages" && slug.current == "${route.params.slug}"] {
     title,
     coverImage,
-    bodyContent
+    bodyContent,
+    _id
 }`
-// convert markdown item.blogContent to html
+const indexQuery = `*[_type == "sitePages"] {
+  _id,
+  title,
+  coverImage,
+  slug,
+}`
 
 const imageBuilder = imageUrlBuilder(sanity);
 const imageUrlFor = (source) => {
@@ -22,8 +29,13 @@ const imageUrlFor = (source) => {
 }
 const db = useDatabaseStore();
 await db.getBlogPost(query);
+await db.getIndexList(indexQuery)
+
+const otherPosts = db.indexList.filter(item => item._id !== db.blogPost[0]._id).sort((a, b) => 0.5 - Math.random()).slice(0, 3)
 
 const bodyContent = marked.parse(db.blogPost[0].bodyContent);
+
+
 
 </script>
 <template>
@@ -34,6 +46,8 @@ const bodyContent = marked.parse(db.blogPost[0].bodyContent);
             <img :src="imageUrlFor(db.blogPost[0].coverImage).width(1280).url()" />
         </div>
         <article v-html="bodyContent" class="markdown-text container"></article>
+        <h3>También puede interesarte</h3>
+        <BlogCardsList :postList="otherPosts" :size="'small'"/>
     </main>
 </template>
 
@@ -44,6 +58,11 @@ const bodyContent = marked.parse(db.blogPost[0].bodyContent);
 main
     min-height: 100vh
     padding-top: 3rem
+    & > h3
+        margin: 4rem auto 2rem
+        text-align: left
+        max-width: 1280px
+        width: 95%
 .blog__header
     margin-bottom: 2rem
     h2
@@ -60,7 +79,7 @@ main
         max-height: 700px
         display: block
         height: auto
-        margin: auto
+        margin-inline: auto
         object-fit: cover
         object-position: center
 .go-back
