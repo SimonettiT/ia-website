@@ -32,9 +32,11 @@ defineProps({
     @include mixins.grid(2, null , center, start)
     gap: 2rem
     text-align: left
-    .tools__item:hover
-        .tools__link
-            text-decoration: underline
+    .tools__item
+        width: 100%
+        &:hover
+            .tools__link
+                text-decoration: underline
     img
         width: 100%
         height: 300px
