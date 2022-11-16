@@ -23,9 +23,11 @@ onMounted(() => {
                 <div class="nav__wrapper">
                     <RouterLink @click="closeNavMenu()" to="/" class="nav__link">Inicio</RouterLink>
                     <h4 class="nav__category-title">Imagina</h4>
-                    <RouterLink @click="closeNavMenu()" to="/generate/text" class="nav__link">Textos</RouterLink>
-                    <RouterLink @click="closeNavMenu()" to="/generate/images" class="nav__link">Imágenes</RouterLink>
-                    <RouterLink @click="closeNavMenu()" to="/generate/sound" class="nav__link">Sonidos</RouterLink>
+                    <div class="nav__links-section">
+                        <RouterLink @click="closeNavMenu()" to="/generate/text" class="nav__link">Textos</RouterLink>
+                        <RouterLink @click="closeNavMenu()" to="/generate/images" class="nav__link">Imágenes</RouterLink>
+                        <RouterLink @click="closeNavMenu()" to="/generate/sound" class="nav__link">Sonidos</RouterLink>
+                    </div>
                 </div>
             </Transition>
             <Logo class="nav__background-logo"/>
@@ -79,6 +81,12 @@ onMounted(() => {
     width: 80%
     margin-inline: auto
     padding-top: 5rem
+    .nav__links-section
+        @include mixins.flex(column, center, flex-start, nowrap)
+        @media (min-width: variables.$bkp-large) and (max-height: 630px)
+            flex-direction: row
+            width: 100%
+            justify-content: space-between
     .nav__link
         font-size: fonts.$font-xxxl
         font-family: "Khand", sans-serif
