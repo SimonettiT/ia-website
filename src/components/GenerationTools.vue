@@ -12,7 +12,7 @@ defineProps({
 <template>
     <section class="container tools__grid">
         <a :href="tool.link" target="_blank" v-for="tool in toolsCollection" :key="tool.title" class="tools__item">
-            <img :src="'https://simonettitomas.com/ia-images/' + tool.img" :alt="tool.title">
+            <img :src="'https://media.simonettitomas.com/ia-images/' + tool.img" :alt="tool.title">
             <h4>{{ tool.title }}</h4>
             <p class="tools__description">{{ tool.description }}</p>
             <p class="tools__link">Visitar <Arrow :orientation="'90deg'" :orientation-medium="'90deg'" class="small-arrow-icon"/></p>

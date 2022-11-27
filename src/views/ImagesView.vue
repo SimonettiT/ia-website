@@ -10,15 +10,15 @@ const imgCollection = ref([
         images: [
             {
                 name: 'en un render 3D hiperrealista',
-                link: 'https://simonettitomas.com/ia-images/An%20elephant%20riding%20a%20motorbike%2C%20realistic%203D%20Render.webp',
+                link: 'https://media.simonettitomas.com/ia-images/An%20elephant%20riding%20a%20motorbike%2C%20realistic%203D%20Render.webp',
             },
             {
                 name: 'dibujado como caricatura',
-                link: 'https://simonettitomas.com/ia-images/An%20elephant%20riding%20a%20motorbike%20in%20a%20cartoonish%20style.webp',
+                link: 'https://media.simonettitomas.com/ia-images/An%20elephant%20riding%20a%20motorbike%20in%20a%20cartoonish%20style.webp',
             },
             {
                 name: 'pintado al estilo de Roberto Brito',
-                link: 'https://simonettitomas.com/ia-images/An%20elephant%20riding%20a%20motorbike%20in%20the%20style%20of%20Roberto%20Brito%20painting.webp',
+                link: 'https://media.simonettitomas.com/ia-images/An%20elephant%20riding%20a%20motorbike%20in%20the%20style%20of%20Roberto%20Brito%20painting.webp',
             }
         ]
     },
@@ -27,15 +27,15 @@ const imgCollection = ref([
         images: [
             {
                 name: 'futurista en un render 3D hiperrealista',
-                link: 'https://simonettitomas.com/ia-images/3D%20Render%20of%20an%20elephant%20walking%20through%20a%20futuristic%20city%20in%20a%20hyperrealistic%20style.webp'
+                link: 'https://media.simonettitomas.com/ia-images/3D%20Render%20of%20an%20elephant%20walking%20through%20a%20futuristic%20city%20in%20a%20hyperrealistic%20style.webp'
             },
             {
                 name: 'como dibujo a lápiz',
-                link: 'https://simonettitomas.com/ia-images/Elephant%20walking%20through%20a%20city%20as%20a%20pencil%20drawing.webp'
+                link: 'https://media.simonettitomas.com/ia-images/Elephant%20walking%20through%20a%20city%20as%20a%20pencil%20drawing.webp'
             },
             {
                 name: 'pintado al estilo de Dalli',
-                link: 'https://simonettitomas.com/ia-images/Elephant%20walking%20through%20a%20city%20in%20a%20style%20of%20Dalli%20painting.webp'
+                link: 'https://media.simonettitomas.com/ia-images/Elephant%20walking%20through%20a%20city%20in%20a%20style%20of%20Dalli%20painting.webp'
             }
         ]
     },
@@ -44,15 +44,15 @@ const imgCollection = ref([
         images: [
             {
                 name: 'diseñado en pixel art',
-                link: 'https://simonettitomas.com/ia-images/Elephant%20eating%20in%20a%20dinner%20table%20in%20a%20pixel%20art%20style.webp'
+                link: 'https://media.simonettitomas.com/ia-images/Elephant%20eating%20in%20a%20dinner%20table%20in%20a%20pixel%20art%20style.webp'
             },
             {
                 name: 'hecho con plastilina',
-                link: 'https://simonettitomas.com/ia-images/Elephant%20eating%20in%20a%20dinner%20table%20made%20out%20of%20plasticine.webp'
+                link: 'https://media.simonettitomas.com/ia-images/Elephant%20eating%20in%20a%20dinner%20table%20made%20out%20of%20plasticine.webp'
             },
             {
                 name: 'en un estilo synthwave',
-                link: 'https://simonettitomas.com/ia-images/Elephant%20eating%20in%20a%20dinner%20table%20in%20a%20synthwave%20style.webp'
+                link: 'https://media.simonettitomas.com/ia-images/Elephant%20eating%20in%20a%20dinner%20table%20in%20a%20synthwave%20style.webp'
             },
         ]
     }

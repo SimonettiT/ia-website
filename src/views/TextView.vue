@@ -54,7 +54,7 @@ const toolsCollection = ref([
             <p>Una de las mayores dificultades por las que han pasado la gran cantidad de personas, o más bien molestias, es en la creación y redacción de largos textos, ya sean académicos, poéticos, curriculums vitaes, informes, copywriting, lo que sea.</p>
             <p>En la actualidad ya es posible delegarme el trabajo y mucho más gracias a herramientas que se proveen a través de Internet (algunas gratuitas, otras de pago o mixtas).</p>
             <p>La generación de textos es una de las áreas más extensas, más utilizadas y más variada en cantidad de tipos de herramientas disponibles con respecto a la Inteligencia Artificial. La cantidad de usos que existen puede llegar a ser impactante.</p>
-            <img src="https://simonettitomas.com/ia-images/text-generation-1.png" alt="Algunas de las posibilidades de generación de textos">
+            <img src="https://media.simonettitomas.com/ia-images/text-generation-1.png" alt="Algunas de las posibilidades de generación de textos">
             <p>Soy capaz de crear ideas para vídeos de YouTube, generar textos argumentativos de miles de palabras, traducir textos de una lengua a otra, descripciones de productos, poemas, artículos de blog, curriculums vitae personalizados para cada trabajo y mucho más.</p>
             <p>Por desgracia, la gran mayoría de herramientas disponibles se basan en el inglés por el momento. Por lo que te tendrás que basar en este idioma para generar cualquier tipo de texto. De la misma forma, una vez tengas el texto en inglés, puedes usar un traductor para pasarlo al español.</p>
             <h2>Herramientas</h2>
