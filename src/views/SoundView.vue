@@ -25,6 +25,18 @@ const toolsCollection = ref([
         img: 'playht.webp',
         description: 'Servicio que crea audio realista de texto a voz (TTS) utilizando el generador de voz de IA en línea y las mejores voces sintéticas.',
         link: 'https://play.ht/'
+    },
+    {
+        title: 'MusicLM',
+        img: 'musiclm.webp',
+        description: 'Un modelo de lenguaje musical que puede generar música a partir de palabras clave o imágenes',
+        link: 'https://google-research.github.io/seanet/musiclm/examples/'
+    },
+    {
+        title: 'Whisper',
+        img: 'whisper.webp',
+        description: 'Sistema de reconocimiento automático del habla de datos multilingües y multitarea supervisados recogidos en la web.',
+        link: 'https://github.com/openai/whisper'
     }
 ])
 </script>

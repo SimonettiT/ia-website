@@ -43,6 +43,12 @@ const toolsCollection = ref([
         description: 'Una musa experimental impulsada por la IA que te ayuda a componer poesía inspirada en los poetas americanos clásicos. Creado por Google y de uso gratuito',
         link: 'https://sites.research.google/versebyverse/',
         img: 'verse-by-verse.webp',
+    },
+    {
+        title: 'ChatGPT',
+        description: 'Generador de textos a partir de una conversación creado por OpenAI',
+        link: 'https://chat.openai.com/',
+        img: 'chatgpt.webp',
     }
 ])
 </script>
